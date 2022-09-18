@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon';
+import MobileMenuButton from './MobileMenuButton.svelte';
+---
+
+<header>
+  <div id="navbar">
+    <div class="flex justify-start align-items-center h-3/4 gap-3">
+      <Icon name="daycare-logo"></Icon>
+      <div class="flex flex-col justify-center whitespace-nowrap">
+        <div class="nav-text leading-tight">Montessori Kids Academy</div>
+        <div class="nav-text leading-tight">of Windermere</div>
+      </div>
+    </div>
+    <MobileMenuButton client:only></MobileMenuButton>
+  </div>
+  <Icon name="wave-divider"></Icon>
+</header>
+
+<style lang="scss">
+$wave-height: 20px;
+
+html {
+  background-color: var(--color-primary);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#navbar {
+  display: flex;
+  z-index: 99;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: calc(var(--navbar-height) - $wave-height);
+  background-color: var(--color-primary);
+}
+
+.nav-text {
+  color: var(--color-text-alt);
+}
+
+[astro-icon="wave-divider"] {
+  height: $wave-height;
+  width: 100vw;
+  fill: var(--color-primary);
+}
+
+</style>

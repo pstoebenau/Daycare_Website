@@ -1,0 +1,125 @@
+---
+import Header from "../components/Header.astro";
+import "@fontsource/montserrat/variable.css"; // Contains ONLY variable weights and no other axes.
+import "@fontsource/montserrat/variable-italic.css"; // Italic variant.
+
+export interface Props {
+	metaTitle?: string;
+	metaDesc?: string;
+}
+
+const { metaTitle="Montessori Kids Academy of Windermere", metaDesc="Jumpstarting your kids for the constantly evolving world." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{metaTitle}</title>
+		<meta name="description" content={metaDesc}>
+	</head>
+	<body>
+		<Header/>
+		<slot />
+	</body>
+</html>
+
+<style>
+	:root {
+		--font-size-base: 1rem;
+		--font-size-lg: 2.5rem;
+		--font-size-xl: 3.5rem;
+
+		--color-text: hsl(12, 5%, 4%);
+		--color-text-alt: hsl(0, 0%, 95%);
+		--color-bg: hsl(10, 21%, 95%);
+		--color-border: hsl(17, 24%, 90%);
+
+		--color-primary: #118AB2;
+		--color-primary-alt: #073B4C;
+		--color-secondary: #06D6A0;
+		--color-3: #FFD166;
+		--color-4: #EF476F;
+
+
+		--scrollbar-color: rgba(124, 128, 133, 0.6);
+		--scrollbar-highlight-color: rgba(124, 128, 133, 1);
+
+		--navbar-height: 90px;
+	}
+
+	html {
+		font-family: "MontserratVariable";
+	}
+
+	body {
+		margin: 0;
+	}
+
+	html.stop-scroll, body.stop-scroll {
+		overflow: hidden;
+	}
+
+	html, body {
+		overflow: overlay;
+		overflow-x: hidden;
+	}
+
+	/* Customize website's scrollbar like Mac OS
+	Not supports in Firefox and IE */
+
+	/* total width */
+	*::-webkit-scrollbar {
+		overflow: overlay;
+		background-color: rgba(0,0,0,0);
+		width: 6px;
+		height: 16px;
+		padding-right: 5px;
+		z-index: 999999;
+	}
+
+	/* background of the scrollbar except button or resizer */
+	*::-webkit-scrollbar-track {
+		background-color: rgba(0,0,0,0);
+	}
+
+	/* scrollbar itself */
+	*::-webkit-scrollbar-thumb {
+		background-color: rgba(198, 203, 211, 0);
+		border-radius:16px;
+	}
+
+	/* set button(top and bottom of the scrollbar) */
+	*::-webkit-scrollbar-button {
+		display:none;
+	}
+
+	/* scrollbar when element is hovered */
+	*:hover::-webkit-scrollbar-thumb {
+		background-color: var(--scrollbar-color);
+	}
+
+	/* scrollbar when scrollbar is hovered */
+	*::-webkit-scrollbar-thumb:hover {
+		background-color: var(--scrollbar-highlight-color);
+	}
+
+</style>
+
+<style is:global>
+	h1 {
+		font-size: var(--font-size-xl);
+	}
+
+	h2 {
+		font-size: var(--font-size-lg);
+	}
+
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>

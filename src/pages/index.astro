@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Icon } from "astro-icon";
+import Card from '../components/Card.svelte';
+---
+
+<Layout>
+	<main>
+		<div class="aspect-video fixed top-0 left-0 right-0 -z-50 brightness-50">
+			<video autoplay muted loop src="/videos/daycare-video.mp4" class="w-screen h-screen object-cover"></video>
+		</div>
+		<section id="landing-section">
+			<h1 class="text-white font-thin">More than just education</h1>
+			<h1 class="text-white font-thin">Give your child a second home</h1>
+		</section>
+		<section class="bg-white p-[50px]">
+			<h2 class="text-center mb-[50px]">Why choose us?</h2>
+			<div class="flex justify-around h-[500px]">
+				<Card title="Smart child" body="smart" href="/" client:load></Card>
+				<Card title="Smart child" body="smart" href="/" client:load></Card>
+				<Card title="Smart child" body="smart" href="/" client:load></Card>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	#landing-section {
+		height: 100vh;
+		max-height: 1000px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: var(--navbar-height);
+	}
+</style>
