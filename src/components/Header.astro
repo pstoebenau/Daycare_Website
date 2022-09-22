@@ -5,17 +5,22 @@ import MobileMenuButton from './MobileMenuButton.svelte';
 
 <header>
   <div id="navbar">
-    <div class="flex justify-start align-items-center h-3/4 gap-3">
-      <Icon name="daycare-logo"></Icon>
-      <div class="flex flex-col justify-center whitespace-nowrap">
-        <div class="nav-text leading-tight">Montessori Kids Academy</div>
-        <div class="nav-text leading-tight">of Windermere</div>
-      </div>
+    <div class="flex justify-start items-center h-3/4 gap-3">
+      <a href="/" id="navbar-logo">
+        <Icon name="daycare-logo"></Icon>
+      </a>
+      <div class="nav-text leading-tight">Montessori Kids Academy<br>of Windermere</div>
     </div>
-    <MobileMenuButton client:only></MobileMenuButton>
+    <div class="hidden md:flex gap-10 color-text-alt text-xl">
+      <a href="">Home</a>
+      <a href="">About</a>
+      <a href="">Contact</a>
+      <a href="">Enroll</a>
+    </div>
   </div>
   <Icon name="wave-divider"></Icon>
 </header>
+<MobileMenuButton client:only></MobileMenuButton>
 
 <style lang="scss">
 $wave-height: 20px;
@@ -26,13 +31,13 @@ html {
 
 header {
   position: fixed;
+  z-index: 99;
   top: 0;
   left: 0;
 }
 
 #navbar {
   display: flex;
-  z-index: 99;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
@@ -42,6 +47,13 @@ header {
 
 .nav-text {
   color: var(--color-text-alt);
+}
+
+#navbar-logo {
+  width: 70px; 
+  [astro-icon="daycare-logo"] {
+    height: 100%;
+  }
 }
 
 [astro-icon="wave-divider"] {

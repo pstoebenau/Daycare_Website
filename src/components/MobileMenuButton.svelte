@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
+  let mobileMenu: HTMLElement;
   let menuButton: HTMLElement;
 
   function disableScrolling(){
@@ -14,17 +15,28 @@
   }
   
   function toggleMenu(event: MouseEvent) {
-    if (menuButton) {
+    if (menuButton && mobileMenu) {
+      mobileMenu.classList.toggle("open");
       menuButton.classList.toggle("open");
       document.body.classList.toggle("stop-scroll");
     }
   }
 </script>
 
-<div class="menu-button" bind:this={menuButton} on:click|preventDefault={toggleMenu}>
+<div class="mobile-menu" bind:this={mobileMenu}>
   <!-- ANIMATED BACKGROUND ELEMENT -->
   <div class="menu-splash"></div>
 
+  <!-- MENU ITEMS -->
+  <div class="menu-items">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Prices</a>
+  </div>
+</div>
+
+<div class="menu-button md:hidden" bind:this={menuButton} on:click|preventDefault={toggleMenu}>
   <!-- MENU TOGGLE BUTTON -->
   <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
     <title>Toggle Menu</title>
@@ -36,14 +48,6 @@
       <circle class="menu-icon__circle" r="23" cx="25" cy="25" />
     </g>
   </svg>
-
-  <!-- MENU ITEMS -->
-  <div class="menu-items">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-    <a href="#">Prices</a>
-  </div>
 </div>
 
 <style lang="scss" global>
@@ -54,46 +58,50 @@
   }
 
   .menu-button {
-    z-index: 100;
-  }
+    position: fixed;
+    top: 8px;
+    right: 10px;
+    z-index: 101;
 
-  // Toggle Button
-  .menu-icon {
-    display:block;
-    cursor:pointer;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 25px;
-    
-    transform:rotate(0deg);
-    transition: .3s cubic-bezier(0.165, 0.840, 0.440, 1.000); 
-    
-    &__bar,
-    &__circle {
-      fill:none;
-      stroke: currentColor;
-      stroke-width:3;
-      stroke-linecap:round;
-    }
-    &__bar {
-      transform: rotate(0deg);
-      transform-origin:50% 50%;
-      transition: transform .25s ease-in-out;
-    }
-    &__circle {
-      transition: stroke-dashoffset .3s linear .1s;
-      stroke-dashoffset:circumference(23); // 23 is the <circle>'s radius
-      stroke-dasharray:circumference(23);
+    // Toggle Button
+    .menu-icon {
+      display:block;
+      cursor:pointer;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 25px;
+      
+      transform:rotate(0deg);
+      transition: .3s cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+      
+      &__bar,
+      &__circle {
+        fill:none;
+        stroke: currentColor;
+        stroke-width:3;
+        stroke-linecap:round;
+      }
+      &__bar {
+        transform: rotate(0deg);
+        transform-origin:50% 50%;
+        transition: transform .25s ease-in-out;
+      }
+      &__circle {
+        transition: stroke-dashoffset .3s linear .1s;
+        stroke-dashoffset:circumference(23); // 23 is the <circle>'s radius
+        stroke-dasharray:circumference(23);
+      }
     }
   }
 
   // Circular splash
   .menu-splash {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     width: 1px;
     height: 1px;
+    z-index: 100;
     
     &::after {
       content: "";
@@ -127,13 +135,14 @@
     justify-content: center;
     align-items: center;
     transition: gap ease 1s;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     color: var(--color-text-alt);
     font-size: 2rem;
+    z-index: 101;
 
     a {
       text-align: center;
@@ -148,12 +157,6 @@
   }
 
   .menu-button.open {
-    
-    //scale the background circle to full size
-    .menu-splash::after {
-      transform:scale(1);
-    }
-    
     //animate the menu icon
     .menu-icon {
       color:white;
@@ -173,7 +176,16 @@
         transform: rotate(-45deg);
       }
     }
-    
+  }
+
+  .mobile-menu.open {
+    display: block;
+
+    //scale the background circle to full size
+    .menu-splash::after {
+      transform:scale(1);
+    }
+
     //show the nav items
     .menu-items {
       visibility: visible;

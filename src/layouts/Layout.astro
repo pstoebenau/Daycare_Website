@@ -15,11 +15,13 @@ const { metaTitle="Montessori Kids Academy of Windermere", metaDesc="Jumpstartin
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{metaTitle}</title>
 		<meta name="description" content={metaDesc}>
+		<link rel="stylesheet" href="/css/smui.css"/>
+		<script src="https://cdn.lordicon.com/xdjxvujz.js" defer></script>
 	</head>
 	<body>
 		<Header/>
@@ -53,6 +55,7 @@ const { metaTitle="Montessori Kids Academy of Windermere", metaDesc="Jumpstartin
 
 	html {
 		font-family: "MontserratVariable";
+		scroll-behavior: smooth;
 	}
 
 	body {
@@ -121,5 +124,13 @@ const { metaTitle="Montessori Kids Academy of Windermere", metaDesc="Jumpstartin
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+
+	.color-text {
+		color: var(--color-text);
+	}
+
+	.color-text-alt {
+		color: var(--color-text-alt);
 	}
 </style>

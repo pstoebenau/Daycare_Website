@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "smui-theme": "smui-theme compile public/css/smui.css -i src/theme"
   },
   "dependencies": {
     "@astrojs/image": "^0.7.0",
@@ -22,6 +23,9 @@
     "vanilla-tilt": "^1.7.2"
   },
   "devDependencies": {
-    "sass": "^1.54.9"
+    "@smui/button": "^6.1.0",
+    "@smui/card": "^6.1.0",
+    "sass": "^1.54.9",
+    "smui-theme": "^6.1.3"
   }
 }

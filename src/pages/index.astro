@@ -1,7 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Icon } from "astro-icon";
-import Card from '../components/Card.svelte';
+import Tilt from '../components/TiltCard.svelte';
+import { Image, Picture } from '@astrojs/image/components';
+import Button from '@smui/button';
+import Card, {
+		Content,
+		PrimaryAction,
+		Media,
+		MediaContent,
+	} from '@smui/card';
+import TiltCard from '../components/TiltCard.svelte';
+
 ---
 
 <Layout>
@@ -9,16 +18,27 @@ import Card from '../components/Card.svelte';
 		<div class="aspect-video fixed top-0 left-0 right-0 -z-50 brightness-50">
 			<video autoplay muted loop src="/videos/daycare-video.mp4" class="w-screen h-screen object-cover"></video>
 		</div>
-		<section id="landing-section">
-			<h1 class="text-white font-thin">More than just education</h1>
-			<h1 class="text-white font-thin">Give your child a second home</h1>
+		<section id="landing-section" class="relative md:items-center items-start px-5">
+			<h2 class="text-white font-thin text-5xl">More than just education</h2>
+			<Button variant="unelevated" color="primary" class="text-lg font-light" client:load>Enroll Today</Button>
+			<a href="#why-choose-us" class="absolute bottom-5 left-0 right-0 flex justify-center">
+				<lord-icon
+						src="https://cdn.lordicon.com/xhdhjyqy.json"
+						trigger="hover"
+						colors="primary:#ffffff"
+						style="width:50px;height:50px;opacity:80%;">
+				</lord-icon>
+			</a>
 		</section>
-		<section class="bg-white p-[50px]">
+		<section id="why-choose-us" class="bg-white p-[50px]">
 			<h2 class="text-center mb-[50px]">Why choose us?</h2>
-			<div class="flex justify-around h-[500px]">
-				<Card title="Smart child" body="smart" href="/" client:load></Card>
-				<Card title="Smart child" body="smart" href="/" client:load></Card>
-				<Card title="Smart child" body="smart" href="/" client:load></Card>
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-10">
+				<TiltCard title="How to enroll" description="Choose convenient child care near you—full-time or part-time!" imgSrc="/images/girl-pencil.jpg" client:load></TiltCard>
+				<TiltCard title="Health and safety" description="See how our proven health and safety measures will protect your child." imgSrc="/images/health-safety.jpg" client:load></TiltCard>
+				<TiltCard title="More than daycare" description="See how we'll build your whole family's Confidence for Life™." imgSrc="/images/baby-playing-with-toy.jpg" client:load></TiltCard>
+				<TiltCard title="Child development" description="Our annual assessment data proves that kids excel here!" imgSrc="/images/books.jpg" client:load></TiltCard>
+				<TiltCard title="Your baby’s classroom" description="Explore the ways our teachers help your child discover the world!" imgSrc="/images/baby-hold.jpg" client:load></TiltCard>
+				<TiltCard title="Six enrollment tips" description="Make a confident child care choice for your family." imgSrc="/images/bird-crayon.jpg" client:load></TiltCard>
 			</div>
 		</section>
 	</main>
@@ -29,9 +49,9 @@ import Card from '../components/Card.svelte';
 		height: 100vh;
 		max-height: 1000px;
 		display: flex;
+		gap: 20px;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
 		padding-bottom: var(--navbar-height);
 	}
 </style>
