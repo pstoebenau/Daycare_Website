@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import "@fontsource/montserrat/variable.css"; // Contains ONLY variable weights and no other axes.
 import "@fontsource/montserrat/variable-italic.css"; // Italic variant.
 
@@ -26,6 +27,7 @@ const { metaTitle="Montessori Kids Academy of Windermere", metaDesc="Jumpstartin
 	<body>
 		<Header/>
 		<slot />
+		<Footer/>
 	</body>
 </html>
 
@@ -51,6 +53,7 @@ const { metaTitle="Montessori Kids Academy of Windermere", metaDesc="Jumpstartin
 		--scrollbar-highlight-color: rgba(124, 128, 133, 1);
 
 		--navbar-height: 90px;
+		--wave-height: 20px;
 	}
 
 	html {

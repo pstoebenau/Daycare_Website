@@ -23,8 +23,6 @@ import MobileMenuButton from './MobileMenuButton.svelte';
 <MobileMenuButton client:only></MobileMenuButton>
 
 <style lang="scss">
-$wave-height: 20px;
-
 html {
   background-color: var(--color-primary);
 }
@@ -41,7 +39,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  height: calc(var(--navbar-height) - $wave-height);
+  height: calc(var(--navbar-height) - var(--wave-height));
   background-color: var(--color-primary);
 }
 
@@ -57,7 +55,7 @@ header {
 }
 
 [astro-icon="wave-divider"] {
-  height: $wave-height;
+  height: var(--wave-height);
   width: 100vw;
   fill: var(--color-primary);
 }
