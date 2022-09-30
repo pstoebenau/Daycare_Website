@@ -7,8 +7,8 @@
 
   const { GeolocateControl, NavigationControl, ScaleControl } = controls;
   const coords = {
-    lat: -81.54123116707794,
-    long: 28.51956892042721,
+    lat: 28.51956892042721,
+    long: -81.54123116707794,
   }
 
   let mapComponent: any;
@@ -28,7 +28,7 @@
   
   function resetMap() {
     zoom.set(initZoom);
-    mapComponent.setCenter([coords.lat, coords.long]);
+    mapComponent.setCenter([coords.long, coords.lat]);
   }
 </script>
 
@@ -36,16 +36,14 @@
   <Map
     bind:this={mapComponent}
     accessToken="pk.eyJ1IjoicHN0b2ViZW5hdSIsImEiOiJjbDhvcHRuNzEwMDJ5M29vOG9weWtkY2MwIn0.PiWLA0Q6DloinqLrBgch3Q"
-    center={[coords.lat, coords.long]}
+    center={[coords.long, coords.lat]}
     zoom={initZoom}
     style="mapbox://styles/pstoebenau/cl8oq6dlq000e14o46k0wh09n"
     options={{
       scrollZoom: false,
     }}
   >
-    <Marker lat={coords.lat} lng={coords.long}>
-      <div class="bg-primary w-5 h-5"></div>
-    </Marker>
+    <Marker label="Montessori Kids Academy of Windermere" lat={coords.lat} lng={coords.long}></Marker>
     <ScaleControl />
   </Map>
 </div>
