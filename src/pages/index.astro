@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { Image, Picture } from '@astrojs/image/components';
 import Button from '@smui/button';
 import TiltCard from '../components/TiltCard.svelte';
-
+import Map from '../components/Map.svelte';
 ---
 
 <Layout>
@@ -34,6 +34,9 @@ import TiltCard from '../components/TiltCard.svelte';
 					<TiltCard title="Six enrollment tips" description="Make a confident child care choice for your family." imgSrc="/images/bird-crayon.jpg" width="400px" client:load></TiltCard>
 				</div>
 			</div>
+		</section>
+		<section id="contact-us">	
+			<Map client:load></Map>
 		</section>
 		<section id="attendance"></section>
 		<section id="mission"></section>
