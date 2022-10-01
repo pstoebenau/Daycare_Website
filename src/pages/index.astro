@@ -4,6 +4,7 @@ import { Image, Picture } from '@astrojs/image/components';
 import Button from '@smui/button';
 import TiltCard from '../components/TiltCard.svelte';
 import Map from '../components/Map.svelte';
+import ContactForm from '../components/ContactForm.svelte';
 ---
 
 <Layout>
@@ -35,8 +36,11 @@ import Map from '../components/Map.svelte';
 				</div>
 			</div>
 		</section>
-		<section id="contact-us">	
+		<section id="contact-us" class="relative">	
 			<Map client:load></Map>
+			<div id="contact-form" class="absolute -top-2 right-10 w-[400px] h-[500px] p-10 bg-white shadow-sm rounded-lg">
+				<ContactForm client:load></ContactForm>
+			</div>
 		</section>
 		<section id="attendance"></section>
 		<section id="mission"></section>
