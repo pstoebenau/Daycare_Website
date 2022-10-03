@@ -27,19 +27,19 @@ import ContactForm from '../components/ContactForm.svelte';
 		<section id="why-choose-us" class="bg-white p-[50px]">
 			<div class="flex justify-center">
 				<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center max-w-screen-xl">
-					<TiltCard title="How to enroll" description="Choose convenient child care near you—full-time or part-time!" imgSrc="/images/girl-pencil.jpg" width="400px" client:load></TiltCard>
-					<TiltCard title="Health and safety" description="See how our proven health and safety measures will protect your child." imgSrc="/images/health-safety.jpg" width="400px" client:load></TiltCard>
-					<TiltCard title="More than daycare" description="See how we'll build your whole family's Confidence for Life™." imgSrc="/images/baby-playing-with-toy.jpg" width="400px" client:load></TiltCard>
-					<TiltCard title="Child development" description="Our annual assessment data proves that kids excel here!" imgSrc="/images/books.jpg" width="400px" client:load></TiltCard>
-					<TiltCard title="Your baby’s classroom" description="Explore the ways our teachers help your child discover the world!" imgSrc="/images/baby-hold.jpg" width="400px" client:load></TiltCard>
-					<TiltCard title="Six enrollment tips" description="Make a confident child care choice for your family." imgSrc="/images/bird-crayon.jpg" width="400px" client:load></TiltCard>
+					<TiltCard title="How to enroll" description="Choose convenient child care near you—full-time or part-time!" imgSrc="/images/girl-pencil.jpg" width="400px" client:visible></TiltCard>
+					<TiltCard title="Health and safety" description="See how our proven health and safety measures will protect your child." imgSrc="/images/health-safety.jpg" width="400px" client:visible></TiltCard>
+					<TiltCard title="More than daycare" description="See how we'll build your whole family's Confidence for Life™." imgSrc="/images/baby-playing-with-toy.jpg" width="400px" client:visible></TiltCard>
+					<TiltCard title="Child development" description="Our annual assessment data proves that kids excel here!" imgSrc="/images/books.jpg" width="400px" client:visible></TiltCard>
+					<TiltCard title="Your baby’s classroom" description="Explore the ways our teachers help your child discover the world!" imgSrc="/images/baby-hold.jpg" width="400px" client:visible></TiltCard>
+					<TiltCard title="Six enrollment tips" description="Make a confident child care choice for your family." imgSrc="/images/bird-crayon.jpg" width="400px" client:visible></TiltCard>
 				</div>
 			</div>
 		</section>
 		<section id="contact-us" class="relative">	
-			<Map client:load></Map>
-			<div id="contact-form" class="absolute -top-2 right-10 w-[400px] h-[500px] p-10 bg-white shadow-sm rounded-lg">
-				<ContactForm client:load></ContactForm>
+			<Map client:visible></Map>
+			<div id="contact-form" class="md:absolute -top-2 right-10 w-screen md:w-[400px] p-10 bg-white md:shadow-sm md:rounded-lg">
+				<ContactForm client:visible></ContactForm>
 			</div>
 		</section>
 		<section id="attendance"></section>

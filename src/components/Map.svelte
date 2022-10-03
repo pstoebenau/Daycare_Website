@@ -26,12 +26,12 @@
   });
 
   function zoomOut() {
-    mapComponent.flyTo({center: [coords.long+0.02, coords.lat], zoom: endZoom});
+    mapComponent.flyTo({center: [coords.long, coords.lat], zoom: endZoom});
   }
   
   function resetMap() {
     mapComponent.setZoom(initZoom);
-    mapComponent.setCenter([coords.long+0.001, coords.lat]);
+    mapComponent.setCenter([coords.long, coords.lat]);
   }
 </script>
 
@@ -45,7 +45,7 @@
       scrollZoom: false,
     }}
   >
-    <Marker lat={coords.lat} lng={coords.long}>
+    <Marker lat={coords.lat} lng={coords.long} popup={false}>
       
     </Marker>
   </Map>
