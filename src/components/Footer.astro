@@ -2,9 +2,20 @@
   const currentYear = (new Date()).getFullYear();
 ---
 
-<div class="bg-white p-6 flex justify-center">
+<div class="bg-white px-10 pb-14 flex justify-center text-sm">
   <div class="w-full max-w-screen-xl flex flex-col items-stretch">
-    <hr class="w-full mb-4">
-    <p class="text-slate-700 self-end">© {currentYear} Montessori Kids Academy of Windermere</p>
+    <hr class="w-full mb-14">
+    <div class="flex flex-col md:flex-row gap-5 justify-between">
+      <div class="leading-7">
+        <p class="text-xs mb-2">Address</p>
+        <a href="https://goo.gl/maps/n9Z4ZEp4fUnrsVZDA">1707 Maguire Rd,<br>Windermere, FL 34786</a>
+      </div>
+      <div class="leading-7">
+        <p class="text-xs mb-2">Contacts</p>
+        <a href="mailto:support@montessoriofwindermere.com">support@montessoriofwindermere.com</a><br>
+        <a href="tel:+14072175566">(407) 217-5566</a>
+      </div>
+      <p class="text-slate-700">© {currentYear} Montessori Kids Academy of Windermere</p>
+    </div>
   </div>
 </div>

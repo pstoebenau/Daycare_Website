@@ -14,12 +14,9 @@
   let mapComponent: any;
   let initZoom = 18;
   let endZoom = 13;
-  let zoom = tweened(initZoom, {
-    duration: 1500,
-    easing: cubicOut,
-  });
+  let currentZoom = endZoom;
 
-  $: if (mapComponent) mapComponent.setZoom($zoom);
+  $: if (mapComponent) mapComponent.flyTo({center: [coords.long, coords.lat], zoom: currentZoom});
 
   onMount(() => {
     resetMap();
@@ -46,13 +43,12 @@
     }}
   >
     <Marker lat={coords.lat} lng={coords.long} popup={false}>
-      
     </Marker>
   </Map>
   <div id="map-controls" class="hidden sm:block absolute top-5 left-5">
     <div class="flex flex-col gap-3" id="zoom-controls">
-      <button on:click={() => zoom.set($zoom+1)} type="button" class="bg-gray-300 hover:bg-gray-400 rounded-lg text-xl px-4 py-2">+</button>
-      <button on:click={() => zoom.set($zoom-1)} type="button" class="bg-gray-300 hover:bg-gray-400 rounded-lg text-xl px-4 py-2">-</button>
+      <button on:click={() => currentZoom++} type="button" class="bg-gray-300 hover:bg-gray-400 rounded-lg text-xl px-4 py-2">+</button>
+      <button on:click={() => currentZoom--} type="button" class="bg-gray-300 hover:bg-gray-400 rounded-lg text-xl px-4 py-2">-</button>
     </div>
   </div>
 </div>
