@@ -10,7 +10,7 @@
 
 </script>
 
-<form action="/" name="contact" data-netlify="true">
+<form name="contact" method="POST" data-netlify="true">
   <div class="flex flex-col gap-8">
     <p class="text-3xl">Join Waitlist</p>
     <Textfield bind:value={name} label="Name" type="text" required></Textfield>
