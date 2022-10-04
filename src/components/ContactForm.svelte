@@ -19,6 +19,6 @@
     <Textfield textarea input$maxlength={500} bind:value={message} label="Message">
       <CharacterCounter slot="internalCounter">0 / 500</CharacterCounter>
     </Textfield>
-    <Button class="py-7 text-base" touch variant="unelevated"><Label>Send</Label></Button>
+    <Button type="submit" class="py-7 text-base" touch variant="unelevated"><Label>Send</Label></Button>
   </div>
 </form>
