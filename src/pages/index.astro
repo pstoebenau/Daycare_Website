@@ -5,12 +5,16 @@ import Button from '@smui/button';
 import TiltCard from '../components/TiltCard.svelte';
 import Map from '../components/Map.svelte';
 import ContactForm from '../components/ContactForm.svelte';
+
+// Assets
+import heroImage from "../assets/images/front-view.jpg";
 ---
 
 <Layout>
 	<main>
-		<div class="aspect-video fixed top-0 left-0 right-0 -z-50 brightness-50">
-			<video autoplay muted loop src="/videos/daycare-video.mp4" class="w-screen h-screen object-cover"></video>
+		<div class="aspect-video fixed top-0 left-0 right-0 -z-50 brightness-90">
+			<Image src={heroImage} alt="" width={1920} height={1080} format="webp" class="w-screen h-screen object-cover"></Image>
+			<!-- <video autoplay muted loop src="/videos/daycare-video.mp4" class="w-screen h-screen object-cover"></video> -->
 		</div>
 		<section id="landing-section" class="relative md:items-center items-start px-5">
 			<h2 class="text-white font-thin text-5xl">More than just education</h2>
