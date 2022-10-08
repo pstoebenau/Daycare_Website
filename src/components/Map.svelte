@@ -37,7 +37,7 @@
     bind:this={mapComponent}
     accessToken="pk.eyJ1IjoicHN0b2ViZW5hdSIsImEiOiJjbDhvcHRuNzEwMDJ5M29vOG9weWtkY2MwIn0.PiWLA0Q6DloinqLrBgch3Q"
     zoom={initZoom}
-    style="mapbox://styles/pstoebenau/cl8oq6dlq000e14o46k0wh09n"
+    style="mapbox://styles/pstoebenau/cl8ziai11000e15ovl0c9880i"
     options={{
       scrollZoom: false,
     }}

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image, Picture } from '@astrojs/image/components';
+import { Icon } from 'astro-icon';
 import Button from '@smui/button';
 import TiltCard from '../components/TiltCard.svelte';
 import Map from '../components/Map.svelte';
@@ -8,18 +9,19 @@ import ContactForm from '../components/ContactForm.svelte';
 
 // Assets
 import heroImage from "../assets/images/front-view.jpg";
+import ownerImage from "../assets/images/owner-portrait.jpg";
 ---
 
 <Layout>
 	<main>
 		<div class="aspect-video fixed top-0 left-0 right-0 -z-50 brightness-90">
-			<Image src={heroImage} alt="" width={1920} height={1080} format="webp" class="w-screen h-screen object-cover"></Image>
-			<!-- <video autoplay muted loop src="/videos/daycare-video.mp4" class="w-screen h-screen object-cover"></video> -->
+			<!-- <Image src={heroImage} alt="" width={1920} height={1080} format="webp" class="w-screen h-screen object-cover"></Image> -->
+			<video autoplay muted loop playsinline src="/videos/daycare-video.mp4" class="w-screen h-screen object-cover"></video>
 		</div>
 		<section id="landing-section" class="relative md:items-center items-start px-5">
 			<h2 class="text-white font-thin text-5xl">More than just education</h2>
 			<Button variant="unelevated" color="primary" class="text-lg font-light" client:load>Enroll Today</Button>
-			<a href="#why-choose-us" class="absolute bottom-5 left-0 right-0 flex justify-center">
+			<a href="#mission" class="absolute bottom-5 left-0 right-0 flex justify-center">
 				<lord-icon
 						src="https://cdn.lordicon.com/xhdhjyqy.json"
 						trigger="hover"
@@ -28,7 +30,24 @@ import heroImage from "../assets/images/front-view.jpg";
 				</lord-icon>
 			</a>
 		</section>
-		<section id="why-choose-us" class="bg-white p-[50px]">
+		<section id="mission" class="relative flex justify-center items-center">
+			<div class="w-[95vw] max-w-screen-2xl py-[50px] sm:py-[100px]">
+				<h2 class="text-6xl text-center font-light mb-14 text-white">Our Mission</h2>
+				<div class="flex flex-col lg:flex-row justify-center items-center gap-10">
+					<Image src={ownerImage} alt="owner portrait" width={500} height={500} class="rounded-md shadow-md"></Image>
+					<div class="dark-glass p-8 sm:p-14 rounded-md shadow-md">
+						<p class="leading-8 text-white">Deserunt ex aute adipisicing anim excepteur dolore et consectetur. Ut consequat sint duis anim ipsum reprehenderit labore esse adipisicing adipisicing exercitation laborum. Esse consectetur irure eiusmod commodo non Lorem. Mollit ut ut quis deserunt aliqua nulla elit elit ipsum sit deserunt veniam nostrud. Nulla est nisi eiusmod aliquip quis. Consequat laboris veniam consectetur cillum minim nisi dolor. Aliquip cillum sint cillum aute et occaecat nulla culpa. Enim culpa voluptate sint laborum excepteur excepteur laboris sunt. Cillum officia sunt adipisicing et duis amet esse. Nisi est est dolor cupidatat officia adipisicing in labore in excepteur dolor Lorem nostrud non. Laboris amet nulla id quis deserunt. Quis ullamco esse ex exercitation nisi. Ullamco aliqua et enim eu anim anim laborum proident anim excepteur dolor. In minim pariatur do adipisicing sint proident sit enim cupidatat qui commodo voluptate. Cillum ad consectetur ex incididunt aute id cupidatat non nostrud minim cupidatat in.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="contact-us" class="relative">	
+			<Map client:visible></Map>
+			<div id="contact-form" class="md:absolute -top-5 right-10 w-screen md:w-[400px] p-10 bg-white md:shadow-2xl md:rounded-lg">
+				<ContactForm client:visible></ContactForm>
+			</div>
+		</section>
+		<section id="why-choose-us" class="p-[50px]">
 			<div class="flex justify-center">
 				<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center max-w-screen-xl">
 					<TiltCard title="How to enroll" description="Choose convenient child care near you—full-time or part-time!" imgSrc="/images/girl-pencil.jpg" width="400px" client:visible></TiltCard>
@@ -40,17 +59,6 @@ import heroImage from "../assets/images/front-view.jpg";
 				</div>
 			</div>
 		</section>
-		<section id="contact-us" class="relative">	
-			<Map client:visible></Map>
-			<div id="contact-form" class="md:absolute -top-2 right-10 w-screen md:w-[400px] p-10 bg-white md:shadow-sm md:rounded-lg">
-				<ContactForm client:visible></ContactForm>
-			</div>
-		</section>
-		<section id="mission">
-			<div class="flex justify-around">
-								
-			</div>
-		</section>
 		<section id="attendance"></section>
 		<section id="daily-schedule"></section>
 		<section id="tuition"></section>
@@ -59,6 +67,10 @@ import heroImage from "../assets/images/front-view.jpg";
 </Layout>
 
 <style>
+	section {
+		scroll-margin-top: calc(var(--navbar-height) - var(--wave-height));
+	}
+
 	#landing-section {
 		height: 100vh;
 		/* max-height: 1000px; */
@@ -69,7 +81,18 @@ import heroImage from "../assets/images/front-view.jpg";
 		padding-bottom: var(--navbar-height);
 	}
 
+	#mission {
+		background-image: url("/images/circle-scatter.svg");
+		background-size: cover;
+	}
+
 	#why-choose-us {
-		scroll-margin-top: calc(var(--navbar-height) - var(--wave-height));
+		background-image: url("/images/layered-waves.svg");
+		background-size: cover;
+	}
+
+	.dark-glass {
+		backdrop-filter: blur(10px);
+		background-color: hsla(0, 0%, 0%, 0.4);
 	}
 </style>

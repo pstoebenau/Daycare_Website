@@ -3,22 +3,15 @@
 
   let mobileMenu: HTMLElement;
   let menuButton: HTMLElement;
-
-  function disableScrolling(){
-    var x=window.scrollX;
-    var y=window.scrollY;
-    window.onscroll=function(){window.scrollTo(x, y);};
-  }
-
-  function enableScrolling(){
-    window.onscroll=function(){};
-  }
+  let open = false;
   
   function toggleMenu(event: MouseEvent) {
     if (menuButton && mobileMenu) {
+      open = !open;
       mobileMenu.classList.toggle("open");
       menuButton.classList.toggle("open");
-      document.body.classList.toggle("stop-scroll");
+      if (open) document.documentElement.style.overflow = "hidden";
+      else document.documentElement.style.overflow = "";
     }
   }
 </script>
@@ -36,7 +29,7 @@
   </div>
 </div>
 
-<div class="menu-button md:hidden" bind:this={menuButton} on:click|preventDefault={toggleMenu}>
+<div class="menu-button" bind:this={menuButton} on:click|preventDefault={toggleMenu}>
   <!-- MENU TOGGLE BUTTON -->
   <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
     <title>Toggle Menu</title>
@@ -58,9 +51,7 @@
   }
 
   .menu-button {
-    position: fixed;
-    top: 8px;
-    right: 10px;
+    position: relative;
     z-index: 101;
 
     // Toggle Button

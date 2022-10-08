@@ -9,7 +9,7 @@ import MobileMenuButton from './MobileMenuButton.svelte';
       <a href="/" id="navbar-logo">
         <Icon name="daycare-logo"></Icon>
       </a>
-      <div class="nav-text leading-tight">Montessori Kids Academy<br>of Windermere</div>
+      <div class="nav-text leading-tight hidden sm:block">Montessori Kids Academy<br>of Windermere</div>
     </div>
     <div class="hidden md:flex gap-10 color-text-alt text-xl">
       <a href="">Home</a>
@@ -17,10 +17,12 @@ import MobileMenuButton from './MobileMenuButton.svelte';
       <a href="">Contact</a>
       <a href="">Enroll</a>
     </div>
+    <div class="md:hidden">
+      <MobileMenuButton client:only></MobileMenuButton>
+    </div>
   </div>
   <Icon name="wave-divider"></Icon>
 </header>
-<MobileMenuButton client:only></MobileMenuButton>
 
 <style lang="scss">
 html {
