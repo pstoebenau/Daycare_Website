@@ -59,19 +59,15 @@ const { metaTitle="Montessori Kids Academy of Windermere", metaDesc="Jumpstartin
 	html {
 		font-family: "MontserratVariable";
 		scroll-behavior: smooth;
+		overflow-x: visible;
+		/* background-color: var(--color-primary); */
+		background-color: white;
 	}
 
 	body {
 		margin: 0;
-	}
-
-	html.stop-scroll, body.stop-scroll {
-		overflow: hidden;
-	}
-
-	html, body {
-		overflow: overlay;
 		overflow-x: hidden;
+		overflow-y: overlay;
 	}
 
 	/* Customize website's scrollbar like Mac OS

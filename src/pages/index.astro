@@ -14,13 +14,11 @@ import ownerImage from "../assets/images/owner-portrait.jpg";
 
 <Layout>
 	<main>
-		<div class="aspect-video fixed top-0 left-0 right-0 -z-50 brightness-90">
-			<!-- <Image src={heroImage} alt="" width={1920} height={1080} format="webp" class="w-screen h-screen object-cover"></Image> -->
-			<video autoplay muted loop playsinline src="/videos/daycare-video.mp4" class="w-screen h-screen object-cover"></video>
-		</div>
-		<section id="landing-section" class="relative md:items-center items-start px-5">
-			<h2 class="text-white font-thin text-5xl">More than just education</h2>
-			<Button variant="unelevated" color="primary" class="text-lg font-light" client:load>Enroll Today</Button>
+		<section id="landing" class="relative md:items-center items-start px-5">
+			<!-- <Image src={heroImage} alt="" width={1920} height={1080} format="webp" class="absolute top-0 left-0 -z-10 w-screen h-screen object-cover"></Image> -->
+			<video autoplay muted loop playsinline src="/videos/daycare-video.mp4" class="absolute top-0 left-0 -z-10 w-screen h-screen object-cover brightness-75"></video>
+			<h2 class="text-white font-light text-5xl">Fostering independence<br> and a love of learning.</h2>
+			<Button href="#contact" variant="unelevated" color="primary" class="font-light text-3xl" client:load>Join the Waitlist</Button>
 			<a href="#mission" class="absolute bottom-5 left-0 right-0 flex justify-center">
 				<lord-icon
 						src="https://cdn.lordicon.com/xhdhjyqy.json"
@@ -31,17 +29,18 @@ import ownerImage from "../assets/images/owner-portrait.jpg";
 			</a>
 		</section>
 		<section id="mission" class="relative flex justify-center items-center">
-			<div class="w-[95vw] max-w-screen-2xl py-[50px] sm:py-[100px]">
+			<div class="w-[95vw] max-w-screen-xl py-[50px] sm:py-[100px]">
 				<h2 class="text-6xl text-center font-light mb-14 text-white">Our Mission</h2>
 				<div class="flex flex-col lg:flex-row justify-center items-center gap-10">
 					<Image src={ownerImage} alt="owner portrait" width={500} height={500} class="rounded-md shadow-md"></Image>
-					<div class="dark-glass p-8 sm:p-14 rounded-md shadow-md">
-						<p class="leading-8 text-white">Deserunt ex aute adipisicing anim excepteur dolore et consectetur. Ut consequat sint duis anim ipsum reprehenderit labore esse adipisicing adipisicing exercitation laborum. Esse consectetur irure eiusmod commodo non Lorem. Mollit ut ut quis deserunt aliqua nulla elit elit ipsum sit deserunt veniam nostrud. Nulla est nisi eiusmod aliquip quis. Consequat laboris veniam consectetur cillum minim nisi dolor. Aliquip cillum sint cillum aute et occaecat nulla culpa. Enim culpa voluptate sint laborum excepteur excepteur laboris sunt. Cillum officia sunt adipisicing et duis amet esse. Nisi est est dolor cupidatat officia adipisicing in labore in excepteur dolor Lorem nostrud non. Laboris amet nulla id quis deserunt. Quis ullamco esse ex exercitation nisi. Ullamco aliqua et enim eu anim anim laborum proident anim excepteur dolor. In minim pariatur do adipisicing sint proident sit enim cupidatat qui commodo voluptate. Cillum ad consectetur ex incididunt aute id cupidatat non nostrud minim cupidatat in.</p>
+					<div class="dark-glass p-8 sm:p-14 rounded-md shadow-md leading-8 text-white">
+						<!-- <p>Montessori Kids Academy of Windermere is dedicated to providing a warm and nurturing environment where children can learn and grow. We believe in the Montessori philosophy of hands-on, individualized learning and strive to create a supportive and nurturing community for our families. We are committed to providing a high quality education that meets the individual needs of each child and prepares them for a lifetime of learning. We believe that all children are capable of reaching their full potential and our goal is to help them reach their highest potential. We are dedicated to providing a safe, clean, and welcoming environment for all children and families. We believe that every child is a unique individual and deserves to be respected and valued. We are committed to providing a Montessori education that is accessible to all families.</p> -->
+						<p>Montessori Kids Academy of Windermere is a school that strives to provide a nurturing and stimulating environment where children can explore, learn, and grow. We believe in the Montessori philosophy of education, which emphasizes the development of the whole child – physically, emotionally, cognitively, and socially. Our highly trained staff provides individualized attention and guidance to each child in our care. We are committed to providing a safe, warm, and welcoming environment for all children and families.</p>
 					</div>
 				</div>
 			</div>
 		</section>
-		<section id="contact-us" class="relative">	
+		<section id="contact" class="relative">	
 			<Map client:visible></Map>
 			<div id="contact-form" class="md:absolute -top-5 right-10 w-screen md:w-[400px] p-10 bg-white md:shadow-2xl md:rounded-lg">
 				<ContactForm client:visible></ContactForm>
@@ -71,8 +70,9 @@ import ownerImage from "../assets/images/owner-portrait.jpg";
 		scroll-margin-top: calc(var(--navbar-height) - var(--wave-height));
 	}
 
-	#landing-section {
-		height: 100vh;
+	#landing {
+		height: 750px;
+		max-height: calc(100vh - var(--navbar-height) + var(--wave-height));
 		/* max-height: 1000px; */
 		display: flex;
 		gap: 20px;
@@ -84,6 +84,10 @@ import ownerImage from "../assets/images/owner-portrait.jpg";
 	#mission {
 		background-image: url("/images/circle-scatter.svg");
 		background-size: cover;
+	}
+
+	#contact {
+		scroll-margin-top: calc(var(--navbar-height) - var(--wave-height) + 50px);
 	}
 
 	#why-choose-us {

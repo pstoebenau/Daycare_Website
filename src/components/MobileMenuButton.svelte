@@ -10,8 +10,6 @@
       open = !open;
       mobileMenu.classList.toggle("open");
       menuButton.classList.toggle("open");
-      if (open) document.documentElement.style.overflow = "hidden";
-      else document.documentElement.style.overflow = "";
     }
   }
 </script>
@@ -22,10 +20,10 @@
 
   <!-- MENU ITEMS -->
   <div class="menu-items">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-    <a href="#">Prices</a>
+    <a on:click={toggleMenu} href="#landing">Home</a>
+    <a on:click={toggleMenu} href="#mission">Mission</a>
+    <a on:click={toggleMenu} href="#contact">Contact</a>
+    <a on:click={toggleMenu} href="#">Prices</a>
   </div>
 </div>
 

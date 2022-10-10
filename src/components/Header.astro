@@ -12,9 +12,9 @@ import MobileMenuButton from './MobileMenuButton.svelte';
       <div class="nav-text leading-tight hidden sm:block">Montessori Kids Academy<br>of Windermere</div>
     </div>
     <div class="hidden md:flex gap-10 color-text-alt text-xl">
-      <a href="">Home</a>
-      <a href="">About</a>
-      <a href="">Contact</a>
+      <a href="#landing">Home</a>
+      <a href="#mission">Mission</a>
+      <a href="#contact">Contact</a>
       <a href="">Enroll</a>
     </div>
     <div class="md:hidden">
@@ -25,12 +25,8 @@ import MobileMenuButton from './MobileMenuButton.svelte';
 </header>
 
 <style lang="scss">
-html {
-  background-color: var(--color-primary);
-}
-
 header {
-  position: fixed;
+  position: sticky;
   z-index: 99;
   top: 0;
   left: 0;
@@ -57,6 +53,7 @@ header {
 }
 
 [astro-icon="wave-divider"] {
+  position: absolute;
   height: var(--wave-height);
   width: 100vw;
   fill: var(--color-primary);
