@@ -32,7 +32,7 @@
   }
 </script>
 
-<div use:inview={{}} on:enter={zoomOut} on:leave={resetMap} class="relative bg-gray-200 h-[300px] sm:h-[700px]">
+<div use:inview={{}} on:enter={zoomOut} on:leave={resetMap} class="relative">
   <Map
     bind:this={mapComponent}
     accessToken="pk.eyJ1IjoicHN0b2ViZW5hdSIsImEiOiJjbDhvcHRuNzEwMDJ5M29vOG9weWtkY2MwIn0.PiWLA0Q6DloinqLrBgch3Q"

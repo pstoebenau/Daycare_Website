@@ -8,25 +8,19 @@ import Map from '../components/Map.svelte';
 import ContactForm from '../components/ContactForm.svelte';
 
 // Assets
-import heroImage from "../assets/images/front-view.jpg";
+import heroImage from "../assets/images/colored-pencils.jpg";
 import ownerImage from "../assets/images/owner-portrait.jpg";
+import mapImg from "../assets/images/map.jpg";
+import DailySchedule from '../components/DailySchedule.svelte';
 ---
 
 <Layout>
 	<main>
 		<section id="landing" class="relative md:items-center items-start px-5">
-			<!-- <Image src={heroImage} alt="" width={1920} height={1080} format="webp" class="absolute top-0 left-0 -z-10 w-screen h-screen object-cover"></Image> -->
-			<video autoplay muted loop playsinline src="/videos/daycare-video.mp4" class="absolute top-0 left-0 -z-10 w-screen h-screen object-cover brightness-75"></video>
+			<Image src={heroImage} alt="" width={1920} height={1080} format="webp" class="absolute top-0 left-0 -z-10 w-screen h-screen object-cover brightness-75"></Image>
+			<!-- <video autoplay muted loop playsinline src="/videos/daycare-video.mp4" class="absolute top-0 left-0 -z-10 w-full h-full object-cover brightness-75"></video> -->
 			<h2 class="text-white font-light text-5xl">Fostering independence<br> and a love of learning.</h2>
-			<Button href="#contact" variant="unelevated" color="primary" class="font-light text-3xl" client:load>Join the Waitlist</Button>
-			<a href="#mission" class="absolute bottom-5 left-0 right-0 flex justify-center">
-				<lord-icon
-						src="https://cdn.lordicon.com/xhdhjyqy.json"
-						trigger="hover"
-						colors="primary:#ffffff"
-						style="width:50px;height:50px;opacity:80%;">
-				</lord-icon>
-			</a>
+			<Button href="#contact" variant="unelevated" color="primary" class="" client:load>Join the Waitlist</Button>
 		</section>
 		<section id="mission" class="relative flex justify-center items-center">
 			<div class="w-[95vw] max-w-screen-xl py-[50px] sm:py-[100px]">
@@ -40,28 +34,36 @@ import ownerImage from "../assets/images/owner-portrait.jpg";
 				</div>
 			</div>
 		</section>
-		<section id="contact" class="relative">	
+		<section id="contact" class="relative sm:h-[700px]">
+			<Image src={mapImg} alt="" width={1920} height={700} format="webp" class="sm:absolute top-0 left-0 w-full h-[400px] sm:h-full object-cover"></Image>
 			<Map client:visible></Map>
 			<div id="contact-form" class="md:absolute -top-5 right-10 w-screen md:w-[400px] p-10 bg-white md:shadow-2xl md:rounded-lg">
 				<ContactForm client:visible></ContactForm>
 			</div>
 		</section>
-		<section id="why-choose-us" class="p-[50px]">
+		<section id="attendance">
+		</section>
+		<section id="daily-schedule" class="py-[50px]">
 			<div class="flex justify-center">
-				<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center max-w-screen-xl">
-					<TiltCard title="How to enroll" description="Choose convenient child care near you—full-time or part-time!" imgSrc="/images/girl-pencil.jpg" width="400px" client:visible></TiltCard>
-					<TiltCard title="Health and safety" description="See how our proven health and safety measures will protect your child." imgSrc="/images/health-safety.jpg" width="400px" client:visible></TiltCard>
-					<TiltCard title="More than daycare" description="See how we'll build your whole family's Confidence for Life™." imgSrc="/images/baby-playing-with-toy.jpg" width="400px" client:visible></TiltCard>
-					<TiltCard title="Child development" description="Our annual assessment data proves that kids excel here!" imgSrc="/images/books.jpg" width="400px" client:visible></TiltCard>
-					<TiltCard title="Your baby’s classroom" description="Explore the ways our teachers help your child discover the world!" imgSrc="/images/baby-hold.jpg" width="400px" client:visible></TiltCard>
-					<TiltCard title="Six enrollment tips" description="Make a confident child care choice for your family." imgSrc="/images/bird-crayon.jpg" width="400px" client:visible></TiltCard>
+				<div class="flex justify-between w-[95vw] max-w-screen-md">
+					<div class="flex flex-col justify-center items-center w-full">
+						<h2 class="text-center text-white mb-10">Daily Schedule</h2>
+						<div class="w-full shadow-2xl overflow-scroll">
+							<DailySchedule client:visible></DailySchedule>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
-		<section id="attendance"></section>
-		<section id="daily-schedule"></section>
-		<section id="tuition"></section>
-		<section id="policies"></section>
+		<section id="tuition">
+			<ul>
+				<li>Full time: $900/month</li>
+				<li>Full time: $9000/year</li>
+			</ul>
+		</section>
+		<section id="policies">
+
+		</section>
 	</main>
 </Layout>
 
@@ -71,7 +73,7 @@ import ownerImage from "../assets/images/owner-portrait.jpg";
 	}
 
 	#landing {
-		height: 750px;
+		height: 650px;
 		max-height: calc(100vh - var(--navbar-height) + var(--wave-height));
 		/* max-height: 1000px; */
 		display: flex;
@@ -92,6 +94,11 @@ import ownerImage from "../assets/images/owner-portrait.jpg";
 
 	#why-choose-us {
 		background-image: url("/images/layered-waves.svg");
+		background-size: cover;
+	}
+
+	#daily-schedule {
+		background-image: url("/images/blob-scene-animated.svg");
 		background-size: cover;
 	}
 

@@ -1,4 +1,5 @@
 ---
+import Button from '@smui/button';
 import { Icon } from 'astro-icon';
 import MobileMenuButton from './MobileMenuButton.svelte';
 ---
@@ -11,11 +12,11 @@ import MobileMenuButton from './MobileMenuButton.svelte';
       </a>
       <div class="nav-text leading-tight hidden sm:block">Montessori Kids Academy<br>of Windermere</div>
     </div>
-    <div class="hidden md:flex gap-10 color-text-alt text-xl">
+    <div class="hidden md:flex items-center gap-10 color-text-alt text-xl">
       <a href="#landing">Home</a>
       <a href="#mission">Mission</a>
       <a href="#contact">Contact</a>
-      <a href="">Enroll</a>
+      <Button href="#contact" variant="raised" color="secondary" client:load>Join Waitlist</Button>
     </div>
     <div class="md:hidden">
       <MobileMenuButton client:only></MobileMenuButton>
